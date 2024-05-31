@@ -1,0 +1,13 @@
+<h1>Lists</h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li>
+      <h2><%= link_to list.name, lists_path(list) %></h2>
+      <p><%= list.decrypt %></p>
+      <p><%= link_to 'View Bookmarks', lists_path(list) %></p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New List', lists_path %>

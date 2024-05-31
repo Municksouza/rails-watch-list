@@ -1,0 +1,28 @@
+<h1>Bookmarks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Overview</th>
+      <th>Poster URL</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td><%= bookmark.movie.title %></td>
+        <td><%= bookmark.movie.overview %></td>
+        <td><%= bookmark.movie.poster_url %></td>
+        <td><%= bookmark.movie.rating %></td>
+          <%= link_to 'Show', list_bookmark_path(@list, bookmarks) %>
+          <%= link_to 'Destroy', [@list, bookmark], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Back to Lists', lists_path %>
