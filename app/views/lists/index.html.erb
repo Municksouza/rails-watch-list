@@ -1,13 +1,12 @@
-<h1>Lists</h1>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <h2><%= link_to list.name, lists_path(list) %></h2>
-      <p><%= list.decrypt %></p>
-      <p><%= link_to 'View Bookmarks', lists_path(list) %></p>
+    <h1>WatchList</h1>
+
+    <h2>Movie Lists</h2>
+  <ul class="list-cards">
+    <% @lists.each do |list| %>
+        <%= link_to list.name, list_path(list) %>
+    <% end %>
+    <li class="add-list">
+      <%= link_to 'add list', new_list_path %>
     </li>
-  <% end %>
-</ul>
-
-<%= link_to 'New List', lists_path %>
+  </ul>
